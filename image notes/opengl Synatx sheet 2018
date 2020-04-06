@@ -1,0 +1,96 @@
+gcc MyProg.c -o MyProg glut32.lib -lopengl32 -lglu32
+
+void glutReshapeFunc(void (*func) (int width, int height))
+
+void glMatrixMode(int mode)
+where mode is either GL_MODELVIEW or GL_PROJECTION
+
+void glPushMatrix()
+void glPopMatrix()
+
+void glLoadIdentity()
+
+void gluOrtho2D(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top)
+
+void glViewport(GLint x, GLint y, GLsizei w, GLsizei h)
+
+void glColor3f(GLfloat r, GLfoat g, GLfloat b)
+
+void glutIdleFunc(void (*func) (void))
+
+void glutPostRedisplay()
+
+void glutEntryFunc(void (*func) (int state))
+where state is either GLUT_ENTERED or GLUT_LEFT
+
+void glutMotionFunc(void (*func) (int x, int y))
+
+void glutPassiveMotionFunc(void (*func) (int x, int y))
+
+void glutMouseFunc(void (*func) (int button, int state, int x, int y))
+where button is either GLUT_RIGHT_BUTTON, GLUT_MIDDLE_BUTTON or GLUT_LEFT_BUTTON and state is either GLUT_UP or GLUT_DOWN
+
+void glutIdleFunc(void (*func) (void))
+
+int glutCreateMenu(void (*func) (int value))
+
+void glutAddMenuEntry(char *name, int value)
+
+void glutAttachMenu(int button)
+where button is either GLUT_RIGHT_BUTTON, GLUT_MIDDLE_BUTTON or GLUT_LEFT_BUTTON
+
+void glutSpecialFunc(void (*func)(int key, int x, int y))
+where key could be GLUT_KEY_RIGHT, GLUT_KEY_LEFT, etc
+
+void glutKeyboardFunc(void (*func)(unsigned char key, int x, int y))
+
+void glutSolidCube(GLfloat length)
+
+void glutSolidCone(GLdouble base, GLdouble height,
+                   GLint slices, GLint stacks);
+
+void glMaterialfv(GLenum face, GLenum name, GLfloat *value)
+void glMaterialf(GLenum face, GLenum name, GLfloat value)
+where face is either GL_FRONT, GL_BACK or GL_FRONT_AND_BACK
+and name is either GL_AMBIENT, GL_DIFFUSE, GL_SPECULAR, GL_EMISSION or GL_SHININESS
+
+red plastic has the following material properties
+ambient { 0.3 , 0.0 , 0.0 , 1.0 } 
+diffuse { 0.6 , 0.0 , 0.0 , 1.0 } 
+specular { 0.8 , 0.6 , 0.6 , 1.0 } 
+shininess 32. 0
+
+void glLightfv(GLenum light, GLenum param, GLfloat *value)
+where light specifies the lighting source and value is assigned to the named parameter param.
+param could be GL_POSITION, GL_DIFFUSE, GL_SPECULAR and GL_AMBIENT.
+
+void glEnable(param)
+where param could be GL_LIGHTING, GL_LIGHT0, GL_LIGHT1,GL_TEXTURE_2D etc.
+
+void glTranslatef(GLfloat dx, GLfloat dy, GLfloat dz)
+
+void glScalef(GLfloat dx, GLfloat dy, GLfloat dz)
+
+void glRotatef(GLfloat angle, GLfloat dx, GLfloat dy, GLfloat dz)
+
+GLUquadricObj *MyQuad;
+MyQuad = gluNewQuadric();
+
+void gluCylinder(GLUquadric* MyQuad, GLdouble base, GLdouble top, GLdouble height, GLint slices, GLint stacks);
+
+void glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, nx, ny, 0, GL_RGB, GL_UNSIGNED_BYTE, texture)
+where nx and ny are the dimensions of the texture array and 'texture' is the name of the 2D array containing the texture
+
+void glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, param)
+void glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, param)
+where param could be GL_CLAMP or GL_REPEAT
+
+void glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, param)
+void glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, param)
+where param could be GL_NEAREST or GL_LINEAR
+
+void glTexCoord2f(GLfloat s, GLfloat t);
+
+void gluQuadricTexture(MyQuad,1);
+where MyQuad is the name of a quadric object
+	
